@@ -1,0 +1,77 @@
+name: Botón CTA
+description: Muestra un botón con un diseño CTA (Llamado a la acción). 
+type: particle
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Habilitado
+      description: Globally enable Call-to-action particles.
+      default: true
+
+    style:
+      type: select.select
+      label: Estilo
+      description: Selecciona el diseño de esta partícula.
+      placeholder: 'Seleccionar...'
+      default: style1
+      options:
+        style1: Estilo 1
+        style2: Estilo 2
+        style3: Estilo 3
+
+    title:
+      type: input.text
+      label: Título
+      description: Escribe el título.
+      default: Escribe el título.
+
+
+    description:
+      type: textarea.textarea
+      label: Descripción
+      description: Ingrese el texto descriptivo de la partícula.
+      default: Entre su descripción.
+
+    buttontext:
+      type: input.text
+      label: Texto del botón
+      description: Escribe el texto del botón.
+      default: CONTÁCTANOS
+
+    link:
+      type: input.text
+      label: Enlace del botón
+      description: Escribe la url de destino.
+      default: #
+
+    buttonicon:
+      type: input.icon
+      label: Ícono del botón
+      description: Selecciona el ícono para el botón.
+      default: fa fa-arrow-right
+
+    target:
+      type: select.select
+      label: Target
+      description: ¿El enlace se abrirá en la misma ventana o una nueva?.
+      placeholder: 'Seleccionar...'
+      default: _parent
+      options:
+          _parent: Misma ventana
+          _blank: Nueva ventana
+
+    css.class:
+      type: input.selectize
+      label: Clase CSS
+      description: Clase CSS de la partícula.
+      default: 
+
+    extra:
+      type: collection.keyvalue
+      label: Tag Attributes
+      description: Extra Tag attributes.
+      key_placeholder: Key (data-*, style, ...)
+      value_placeholder: Value
+      exclude: ['id', 'class']

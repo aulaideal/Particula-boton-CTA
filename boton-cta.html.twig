@@ -1,0 +1,31 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% set attr_extra = '' %}
+{% if particle.extra %}
+    {% for attributes in particle.extra %}
+        {% for key, value in attributes %}
+            {% set attr_extra = attr_extra ~ ' ' ~ key|e ~ '="' ~ value|e('html_attr') ~ '"' %}
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+
+
+{% block particle %}
+
+    <div class="g-llamado-accion{% if particle.css.class %} {{ particle.css.class|e }}{% endif %} {{ particle.style|default("style1")|e }}" {% if particle.extra %}{{ attr_extra|raw }}{% endif %}>
+        
+                        <div class="g-llamado-contenido {% if particle.description == false %} no-desc{% endif %}">
+                            {% if particle.title %}<h3 class="g-llamado-titulo">{{ particle.title|raw }}</h3>{% endif %}
+                            {% if particle.description %}<p class="g-llamado-desc">{{ particle.description|raw }}</p>{% endif %}
+                        </div>
+
+                        <div class="g-llamado-boton">
+                            {% if particle.link %}
+                                <a class="button" target="{{ particle.target|default('_parent')|e }}" href="{{ particle.link|e }}">{% if particle.buttonicon %}<i class="{{ particle.buttonicon|e }}"></i>{% endif %}{{ particle.buttontext|e }}
+                                </a>
+                            {% endif %}
+                        </div>
+                
+    </div>
+
+{% endblock %}
