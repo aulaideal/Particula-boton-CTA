@@ -21,12 +21,88 @@ form:
         style2: Estilo 2
         style3: Estilo 3
 
+    espaciado:
+      type: input.text
+      label: Espaciado
+      description: Define el espaciado que rodeará el contenido de la partícula.
+      default: 2rem 0
+    
+    _separador1:
+      type: separator.note
+      class: 'settings-param'
+      content: '<h4>Ajustes del Fondo</h4>'
+
+    
+    colorfondo:
+      type: input.colorpicker
+      label: Color del fondo
+      default: '#1ccacd'
+      placeholder: 'Color del fondo...'
+
+    imagenfondo:
+      type: input.imagepicker
+      label: Imagen de fondo
+      description: Selecciona una imagen.
+
+    imagencover:
+      type: input.checkbox
+      label: Cover
+      description: La imagen ocupara el 100% de todo el espacio disponible.
+      default: true
+
+    imagenfixed:
+      type: input.checkbox
+      label: Parallax
+      description: La imagen de fondo tendra un efecto llamado Parallax.
+      default: false
+
+    oscurecerimagen:
+      type: select.select
+      label: Oscurecer imagen
+      description: Oscurecer imagen de fondo. Si no ha definido una imagen de fondo, no es necesario usar este campo.
+      default: over-0
+      options:
+        over-0: 0%
+        over-10: 10%
+        over-20: 20%
+        over-30: 30%
+        over-40: 40%
+        over-50: 50%
+        over-60: 60%
+        over-70: 70%
+        over-80: 80%
+        over-90: 90%
+
+    _separador2:
+      type: separator.note
+      class: 'settings-param'
+      content: '<h4>Ajustes del Texto</h4>'
+
+    colortexto:
+      type: input.colorpicker
+      label: Color del texto
+      default: '#ffffff'
+      placeholder: 'Color del texto...'
+
     title:
       type: input.text
       label: Título
       description: Escribe el título.
       default: Escribe el título.
 
+    etiquetatitulo:
+      type: select.select
+      label: Etiqueta del título
+      description: Etiqueta de encabezado del título.
+      placeholder: 'Seleccionar'
+      default: h3  
+      options:
+        h1: H1
+        h2: H2
+        h3: H3
+        h4: H4
+        h5: H5
+        h6: H6
 
     description:
       type: textarea.textarea
@@ -34,23 +110,37 @@ form:
       description: Ingrese el texto descriptivo de la partícula.
       default: Entre su descripción.
 
+    _separador3:
+      type: separator.note
+      class: 'settings-param'
+      content: '<h4>Ajustes del Botón</h4>'
+
     buttontext:
       type: input.text
       label: Texto del botón
       description: Escribe el texto del botón.
-      default: CONTÁCTANOS
+      default: Más información
 
     link:
       type: input.text
       label: Enlace del botón
       description: Escribe la url de destino.
-      default: #
+      default: http://
 
     buttonicon:
       type: input.icon
       label: Ícono del botón
       description: Selecciona el ícono para el botón.
       default: fa fa-arrow-right
+
+    ubicacionicono:
+      type: input.radios
+      label: Ubicación del ícono
+      description: Define la posición del ícono que acompañará al texto del botón.
+      default: ico_ant
+      options:        
+        ico_ant: Antes del texto.
+        ico_desp: Despues del texto.
 
     target:
       type: select.select
@@ -61,6 +151,22 @@ form:
       options:
           _parent: Misma ventana
           _blank: Nueva ventana
+
+    estiloboton:
+      type: select.select
+      label: Estilo del Botón
+      description: Elige un estilo predefinido para el botón.
+      default: button  
+      options:
+        button: button
+        btn-default: btn-default
+        btn-primary: btn-primary       
+        btn-success: btn-success
+        btn-info: btn-info
+        btn-warning: btn-warning 
+        btn-danger: tn-danger
+        btn-link: btn-link
+        btn-inverse: btn-inverse
 
     css.class:
       type: input.selectize
