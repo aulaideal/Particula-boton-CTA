@@ -2,6 +2,10 @@ name: Botón CTA
 description: Muestra un botón con un diseño CTA (Llamado a la acción). 
 type: particle
 
+configuration:
+  caching:
+    type: static
+
 form:
   fields:
     enabled:
