@@ -2,6 +2,8 @@
 Partícula para Gantry 5 que te permite incluir un bloque del tipo "Llamado a la Acción" (Título, descripción y botón) en diferentes
 diseños. Muy usado en sitios web modernos. 
 
+![particula-boton-cta](https://user-images.githubusercontent.com/9434043/26899167-f8436398-4b93-11e7-9d07-9e040aa2049e.png)
+
 Instalación
 -----------
 No hemos incluido un instalador ya que deseamos que esta partícula pueda ser usada tanto en Joomla como en Wordpress. 
