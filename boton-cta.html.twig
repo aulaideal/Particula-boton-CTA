@@ -12,30 +12,34 @@
 
 {% block particle %}
 
-    <div class="g-llamado-accion{% if particle.css.class %} {{ particle.css.class|e }}{% endif %} {{ particle.style|default("style1")|e }} {% if particle.oscurecerimagen %}{{ particle.oscurecerimagen }}{% endif %}"
-    {% if particle.imagenfondo or particle.colorfondo or particle.imagencover or particle.espaciado %} 
-    style="{% if particle.imagenfondo or particle.colorfondo %}background:{% if particle.imagenfondo %}url({{ url(particle.imagenfondo) }}) {% endif %}{% if particle.colorfondo %}{{ particle.colorfondo|e }}{% endif %};{% endif %}{% if particle.imagencover %}background-size:cover; {% endif %}{% if particle.imagenfixed %} background-attachment:fixed; {% endif %}{% if particle.espaciado %}padding:{{ particle.espaciado|e }};{% endif %}" {% endif %}
-    {% if particle.extra %}{{ attr_extra|raw }}{% endif %}>
-    <div class="g-content-cta">
+<div class="g-llamado-accion {% if particle.css.class %}{{ particle.css.class }}{% endif %} {{ particle.style }}" {%- if particle.extra -%}{{ attr_extra|raw }}{%- endif -%}>
 
+    <div class="g-llamado-contenido {% if particle.description == false %} no-desc{% endif %}">
+        {% if particle.title %}<{{ particle.etiquetatitulo }} class="g-llamado-titulo" {% if particle.colortexto %} style="color:{{ particle.colortexto|e }}"{% endif %}>{{ particle.title|raw }}</{{ particle.etiquetatitulo }}>{% endif %}
         
-                        <div class="g-llamado-contenido {% if particle.description == false %} no-desc{% endif %}">
-                            {% if particle.title %}<{{ particle.etiquetatitulo }} class="g-llamado-titulo" {% if particle.colortexto %} style="color:{{ particle.colortexto|e }}"{% endif %}>{{ particle.title|raw }}</{{ particle.etiquetatitulo }}>{% endif %}
-                            {% if particle.description %}<p class="g-llamado-desc" {% if particle.colortexto %} style="color:{{ particle.colortexto|e }}"{% endif %}>{{ particle.description|raw }}</p>{% endif %}
-                        </div>
-
-
-                        <div class="g-llamado-boton">
-                            {% if particle.link %}
-                                <a class="{% if particle.estiloboton =='button' %}button{% else %} btn {{ particle.estiloboton|raw }}{% endif %} btn-large" target="{{ particle.target|default('_parent')|e }}" href="{{ particle.link|e }}">                                
-                                {% if particle.buttonicon %}{% if particle.ubicacionicono=='ico_ant' %}<i class="{{ particle.buttonicon|e }} ico_ant"></i>{% endif %}{% endif %}
-                                {{ particle.buttontext|e }}
-                                {% if particle.buttonicon %}{% if particle.ubicacionicono=='ico_desp' %}<i class="{{ particle.buttonicon|e }} ico_desp"></i>{% endif %}{% endif %}
-                                </a>                            
-
-                            {% endif %}
-                        </div>
-   </div>             
+        {% if particle.description %}
+            <div class="g-llamado-desc"
+            {%- if particle.colordescription or particle.tamanodescripcion -%} style="
+            {%- if particle.colordescription -%}color:{{ particle.colordescription|e }};{%- endif -%}
+            {%- if particle.tamanodescripcion -%}font-size:{{ particle.tamanodescripcion|e }};{%- endif -%}                         	
+        	">{%- endif -%}
+        	{{ particle.description|raw }}
+        	</div>
+        {% endif %}
     </div>
+
+
+    <div class="g-llamado-boton">
+        {% if particle.link %}
+            <a class="btn {% if particle.estiloboton %}{{ particle.estiloboton }}{% endif %} {%if particle.tamanoboton %}{{ particle.tamanoboton }}{% endif %}" target="{{ particle.target|default('_parent')|e }}" href="{{ particle.link|e }}">                                
+            {% if particle.buttonicon %}{% if particle.ubicacionicono=='ico_ant' %}<i class="{{ particle.buttonicon|e }} ico_ant"></i>{% endif %}{% endif %}
+            {{ particle.buttontext|e }}
+            {% if particle.buttonicon %}{% if particle.ubicacionicono=='ico_desp' %}<i class="{{ particle.buttonicon|e }} ico_desp"></i>{% endif %}{% endif %}
+            </a>                               
+
+        {% endif %}
+    </div>
+            
+</div>
 
 {% endblock %}

@@ -1,164 +1,83 @@
 .g-llamado-accion{
-    position: relative;
-    overflow: hidden;
-}
-.g-llamado-accion:before{
-content:"";
-position: absolute;
-left: 0;
-top: 0;
-right: 0;
-bottom: 0;
-}
-.g-llamado-accion.over-0:before{
-background: rgba(0, 0, 0, 0);  
-}
-.g-llamado-accion.over-10:before{
-background: rgba(0, 0, 0, 0.10);  
-}
-.g-llamado-accion.over-20:before{
-background: rgba(0, 0, 0, 0.20);  
-}
-.g-llamado-accion.over-30:before{
-background: rgba(0, 0, 0, 0.30);  
-}
-.g-llamado-accion.over-40:before{
-background: rgba(0, 0, 0, 0.40);  
-}
-.g-llamado-accion.over-50:before{
-background: rgba(0, 0, 0, 0.50);  
-}
-.g-llamado-accion.over-60:before{
-background: rgba(0, 0, 0, 0.60);  
-}
-.g-llamado-accion.over-70:before{
-background: rgba(0, 0, 0, 0.70);  
-}
-.g-llamado-accion.over-80:before{
-background: rgba(0, 0, 0, 0.80);  
-}
-.g-llamado-accion.over-90:before{
-background: rgba(0, 0, 0, 0.90);  
-}
+ position: relative;
+ overflow: hidden;
+ margin: 0 auto;
+padding: 4rem 0;
+line-height: 2rem;
+@include display(flex);	
+@include flex-direction(column);
+@include justify-content(center);
+text-align: center;
 
-.g-content-cta{
-    margin: 0 auto;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-
-     	.g-llamado-contenido{
-			text-align: center;	
-			 z-index: 1;
-			 .g-llamado-titulo{
-				margin: 0 0 1rem 0;							
-			}
-			h1.g-llamado-titulo{
-				font-size: 3.5rem;				
-			}
-			h2.g-llamado-titulo{
-				font-size: 3rem;				
-			}
-			h3.g-llamado-titulo{
-				font-size: 2.5rem;				
-			}
-			h4.g-llamado-titulo{
-				font-size: 2rem;				
-			}
-			h5.g-llamado-titulo{
-				font-size: 1.5rem;				
-			}
-			h6.g-llamado-titulo{
-				font-size: 1rem;				
-			}
-			.g-llamado-desc{
-				margin-top: 0;					
-			}			
-		
-		}
-		.g-llamado-boton{
-			 z-index: 2;
-			.button,
-			.btn {
-			@include breakpoint(mobile-only) {
-						    width: 90%;
-			}
-				i.ico_ant{
-				margin-right:.3rem;
-				}
-				i.ico_desp {
-				    margin-left:.3rem;
-				}			
-			}
-
-		}	
-}
-.g-flushed{
-	.g-content-cta{
-	    @include breakpoint(large-desktop-range) {
-	        width: $breakpoints-large-desktop-container;
-	    }
-	    @include breakpoint(desktop-range) {
-	        width: $breakpoints-desktop-container;
-	    }
-
-	    @include breakpoint(tablet-range) {
-	        width: $breakpoints-tablet-container;
-	    }
-
-	    @include breakpoint(large-mobile-range) {
-	        width: $breakpoints-large-mobile-container;
-	    }
-
-	    @include breakpoint(small-mobile-range) {
-	        width: 100%;
-	    }
+ 	.g-llamado-contenido{
+		text-align: center;	
+		 z-index: 1;
+		 margin-bottom: 1rem;
+		.g-llamado-titulo{
+			margin: 0 0 1rem 0;							
+		}			
+		.g-llamado-desc{
+			margin-top: 0;
+			font-size: 1.5rem;					
+		}			
+	
 	}
-}
-
-/*Estilo 2*/
-.style2{
- .g-content-cta{	
-	display: flex;
-    justify-content: space-between;
-    flex-direction: row;	
-    align-items: center;
-    padding: 0 1rem;
+	.g-llamado-boton{			
+	z-index: 1;
+		.btn{
+		text-decoration: none;
+		}
+		.button,
+		.btn {
 		@include breakpoint(mobile-only) {
-		flex-direction: column;
-	    align-items: inherit;
-	    text-align: center;
+		width: 90%;
 		}
-     	.g-llamado-contenido{
-			    flex: 1;
-    			text-align: left;
-    			@include breakpoint(mobile-only) {
-			    text-align: center;
-				}
-			.g-llamado-titulo{
-				margin: 0;										
+			i.ico_ant{
+			margin-right:.3rem;
+			}
+			i.ico_desp {
+			    margin-left:.3rem;
 			}			
-		
 		}
-		
 	}
-}
 
-/*Estilo 3*/
-.style3{
- .g-content-cta {
-    display: flex;
-    flex-direction: column;
+	/*Estilo 2*/
+	&.style2{
+ 	@include flex-direction(row);
+ 	@include justify-content(space-between);	
+ 	@include align-items(center);
+		@include breakpoint(mobile-only) {
+		@include flex-direction(column);	
+		@include align-items(inherit);
+	    text-align: center;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+		}
+     	.g-llamado-contenido{			    
+		    @include flex(1);
+			text-align: left;
+			margin-right: 1rem;
+			margin-bottom: 0;
+			@include breakpoint(mobile-only) {
+		    text-align: center;
+		    margin-right: 0rem;
+		    margin-bottom: 1rem;
+			}	
+		}	
+	}
+
+	/*Estilo 3*/
+	&.style3{
+ 	@include flex-direction(column);
     padding: 0 1rem;
     text-align: left;		
      	.g-llamado-contenido{
-			    flex: 1;
-    			text-align: left;		
-		}
-		
+			@include flex(1);
+    		text-align: left;		
+		}			
 	}
+	@include breakpoint(mobile-only) {
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+		}
 }
-
-

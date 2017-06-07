@@ -2,10 +2,6 @@ name: Botón CTA
 description: Muestra un botón con un diseño CTA (Llamado a la acción). 
 type: particle
 
-configuration:
-  caching:
-    type: static
-
 form:
   fields:
     enabled:
@@ -13,6 +9,11 @@ form:
       label: Habilitado
       description: Globally enable Call-to-action particles.
       default: true
+
+    separador01:
+      type: separator.note
+      class: alert alert-info
+      content: '<h4>Ajustes Generales</h4>'
 
     style:
       type: select.select
@@ -25,68 +26,29 @@ form:
         style2: Estilo 2
         style3: Estilo 3
 
-    espaciado:
+    espaciadot:
       type: input.text
-      label: Espaciado
-      description: Define el espaciado que rodeará el contenido de la partícula.
-      default: 2rem 0
-    
-    _separador1:
-      type: separator.note
-      class: 'settings-param'
-      content: '<h4>Ajustes del Fondo</h4>'
+      label: Espaciado Superior
+      description: Define el espaciado superior que rodeará el contenido de la partícula.
+      placeholder: '2rem'
+      default: 2rem
+
+    espaciadob:
+      type: input.text
+      label: Espaciado Superior
+      description: Define el espaciado superior que rodeará el contenido de la partícula.
+      placeholder: '2rem'
+      default: 2rem
 
     
-    colorfondo:
-      type: input.colorpicker
-      label: Color del fondo
-      default: '#1ccacd'
-      placeholder: 'Color del fondo...'
-
-    imagenfondo:
-      type: input.imagepicker
-      label: Imagen de fondo
-      description: Selecciona una imagen.
-
-    imagencover:
-      type: input.checkbox
-      label: Cover
-      description: La imagen ocupara el 100% de todo el espacio disponible.
-      default: true
-
-    imagenfixed:
-      type: input.checkbox
-      label: Parallax
-      description: La imagen de fondo tendra un efecto llamado Parallax.
-      default: false
-
-    oscurecerimagen:
-      type: select.select
-      label: Oscurecer imagen
-      description: Oscurecer imagen de fondo. Si no ha definido una imagen de fondo, no es necesario usar este campo.
-      default: over-0
-      options:
-        over-0: 0%
-        over-10: 10%
-        over-20: 20%
-        over-30: 30%
-        over-40: 40%
-        over-50: 50%
-        over-60: 60%
-        over-70: 70%
-        over-80: 80%
-        over-90: 90%
-
-    _separador2:
+    separador02:
       type: separator.note
-      class: 'settings-param'
-      content: '<h4>Ajustes del Texto</h4>'
+      class: alert alert-info
+      content: '<h4>Ajustes del Título</h4>'
 
     colortexto:
       type: input.colorpicker
       label: Color del texto
-      default: '#ffffff'
-      placeholder: 'Color del texto...'
 
     title:
       type: input.text
@@ -108,15 +70,33 @@ form:
         h5: H5
         h6: H6
 
+    separador03:
+      type: separator.note
+      class: alert alert-info
+      content: '<h4>Ajustes de la descripción</h4>'
+
     description:
       type: textarea.textarea
       label: Descripción
       description: Ingrese el texto descriptivo de la partícula.
       default: Entre su descripción.
 
-    _separador3:
+    colordescription:
+      type: input.colorpicker
+      label: Color descripción
+
+    tamanodescripcion:
+      type: input.text
+      label:  Tamaño texto descripción
+      description: Escribe el tamaño texto descripción.
+      placeholder: '1.5rem' 
+
+
+
+
+    separador05:
       type: separator.note
-      class: 'settings-param'
+      class: alert alert-info
       content: '<h4>Ajustes del Botón</h4>'
 
     buttontext:
@@ -130,6 +110,16 @@ form:
       label: Enlace del botón
       description: Escribe la url de destino.
       default: http://
+
+    target:
+      type: select.select
+      label: Target
+      description: ¿El enlace se abrirá en la misma ventana o una nueva?.
+      placeholder: 'Seleccionar...'
+      default: _parent
+      options:
+          _parent: Misma ventana
+          _blank: Nueva ventana
 
     buttonicon:
       type: input.icon
@@ -146,31 +136,34 @@ form:
         ico_ant: Antes del texto.
         ico_desp: Despues del texto.
 
-    target:
-      type: select.select
-      label: Target
-      description: ¿El enlace se abrirá en la misma ventana o una nueva?.
-      placeholder: 'Seleccionar...'
-      default: _parent
-      options:
-          _parent: Misma ventana
-          _blank: Nueva ventana
 
     estiloboton:
       type: select.select
-      label: Estilo del Botón
-      description: Elige un estilo predefinido para el botón.
-      default: button  
+      label: Estilo del botón
+      description: Elija el Estilo del botón.
+      placeholder: 'Seleccionar...'
+      default: btn-primary
       options:
-        button: button
         btn-default: btn-default
-        btn-primary: btn-primary       
-        btn-success: btn-success
+        btn-primary: btn-primary 
+        btn-success: btn-success            
         btn-info: btn-info
-        btn-warning: btn-warning 
-        btn-danger: tn-danger
+        btn-warning: btn-warning
+        btn-danger: btn-danger            
+        btn-inverse : btn-inverse 
         btn-link: btn-link
-        btn-inverse: btn-inverse
+
+    tamanoboton:
+      type: select.select
+      label: Tamaño del botón
+      description: Defina  el tamaño del boton.
+      placeholder: 'Seleccionar...'
+      default: btn-large
+      options:
+        normal: Defecto
+        btn-mini: btn-mini
+        btn-small: btn-small
+        btn-large: btn-large 
 
     css.class:
       type: input.selectize
