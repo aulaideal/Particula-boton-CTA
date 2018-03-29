@@ -11,6 +11,7 @@
 
 
 {% block particle %}
+{% do gantry.theme.joomla(true) %}
 
 <div class="g-llamado-accion {% if particle.css.class %}{{ particle.css.class }}{% endif %} {{ particle.style }}" {%- if particle.extra -%}{{ attr_extra|raw }}{%- endif -%}>
 
